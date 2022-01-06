@@ -4,9 +4,9 @@ import {
   Length,
   IsPositive,
   IsOptional,
-  IsDate,
   Min,
   IsNumber,
+  IsDate,
 } from 'class-validator';
 import { ApiProperty, PartialType } from '@nestjs/swagger';
 
@@ -22,7 +22,7 @@ export class CreateUserDto {
   @IsDate()
   @IsNotEmpty()
   @ApiProperty()
-  readonly birthdate: string;
+  readonly birthdate: Date;
 
   @IsNumber()
   @Min(10000)
