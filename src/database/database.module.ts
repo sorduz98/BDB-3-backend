@@ -10,13 +10,7 @@ import { LoggerOptions } from 'typeorm';
       inject: [config.KEY],
       useFactory: (configService: ConfigType<typeof config>) => {
         const { user, host, dbName, password, port } = configService.postgres;
-        const {
-          synchronize,
-          logging,
-          migrations,
-          migrationsDir,
-          migrationsTableName,
-        } = configService.typeorm;
+        const { synchronize, logging } = configService.typeorm;
 
         return {
           type: 'postgres',
@@ -28,9 +22,6 @@ import { LoggerOptions } from 'typeorm';
           autoLoadEntities: true,
           synchronize: synchronize,
           // logging: logging as LoggerOptions,
-          migrations: [migrations],
-          migrationsDir: migrationsDir,
-          migrationsTableName: migrationsTableName,
         };
       },
     }),
