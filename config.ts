@@ -2,10 +2,6 @@ import { registerAs } from '@nestjs/config';
 
 export default registerAs('config', () => {
   return {
-    database: {
-      name: process.env.DATABASE_NAME,
-      port: process.env.DATABASE_PORT,
-    },
     postgres: {
       dbName: process.env.POSTGRES_DB,
       user: process.env.POSTGRES_USER,
@@ -20,8 +16,8 @@ export default registerAs('config', () => {
       username: process.env.TYPEORM_USERNAME,
       password: process.env.TYPEORM_PASSWORD,
       database: process.env.TYPEORM_DATABASE,
-      synchronize: Boolean(process.env.TYPEORM_SYNCHRONIZE),
-      logging: Boolean(process.env.TYPEORM_LOGGING),
+      synchronize: process.env.TYPEORM_SYNCHRONIZE === 'true',
+      logging: process.env.TYPEORM_SYNCHRONIZE === 'true',
       entities: process.env.TYPEORM_ENTITIES,
       migrations: process.env.TYPEORM_MIGRATIONS,
       migrationsDir: process.env.TYPEORM_MIGRATIONS_DIR,

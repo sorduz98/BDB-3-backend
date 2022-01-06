@@ -4,7 +4,8 @@ import {
   CreateDateColumn,
   Entity,
   Index,
-  OneToMany,
+  JoinColumn,
+  ManyToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
@@ -24,9 +25,13 @@ export class User {
   @Column({ type: 'varchar', length: 255, unique: true })
   email: string;
 
-  @Column({ type: 'varchar', length: 255 })
-  @Exclude()
-  password: string;
+  @ManyToOne(() => User, { nullable: true, onDelete: 'CASCADE' })
+  @JoinColumn({ name: 'father_id' })
+  father: User;
+
+  @ManyToOne(() => User, { nullable: true, onDelete: 'CASCADE' })
+  @JoinColumn({ name: 'mother_id' })
+  mother: User;
 
   @CreateDateColumn({
     name: 'create_at',
@@ -43,7 +48,4 @@ export class User {
   })
   @Exclude()
   updateAt: Date;
-
-  @OneToMany(() => User, (user) => user.id, { nullable: true })
-  children: User[];
 }
