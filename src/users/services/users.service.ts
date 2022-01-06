@@ -21,8 +21,6 @@ export class UsersService {
   }
 
   async create(data: CreateUserDto): Promise<User> {
-    const user = new User();
-    Object.assign(user, data);
-    return await this.userRepo.save(user);
+    return await this.userRepo.save(data);
   }
 }

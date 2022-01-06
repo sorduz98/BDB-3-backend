@@ -28,7 +28,7 @@ export class CreateUserDto {
   @Min(10000)
   @IsNotEmpty()
   @ApiProperty()
-  readonly identification: string;
+  readonly identification: number;
 
   @IsPositive()
   @IsOptional()
@@ -43,11 +43,6 @@ export class CreateUserDto {
     description: 'mother_id in Database.',
   })
   readonly mother_id: number;
-
-  @IsPositive()
-  @IsOptional()
-  @ApiProperty()
-  readonly customerId: number;
 }
 
 export class UpdateUserDto extends PartialType(CreateUserDto) {}
