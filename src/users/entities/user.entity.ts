@@ -16,14 +16,14 @@ export class User {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ type: 'varchar', length: 255, unique: true })
+  @Column({ type: 'varchar', length: 255 })
   fullname: string;
 
-  @Column({ type: 'varchar', length: 255, unique: true })
-  birthdate: string;
+  @Column({ type: 'timestamptz' })
+  birthdate: Date;
 
-  @Column({ type: 'varchar', length: 255, unique: true })
-  email: string;
+  @Column({ type: 'int4', unique: true })
+  identification: number;
 
   @ManyToOne(() => User, { nullable: true, onDelete: 'CASCADE' })
   @JoinColumn({ name: 'father_id' })
