@@ -17,7 +17,7 @@ $ npm install
 Run the app on dev server pointed to remote DB: 
 - Run project: `env=prod npm run start:dev`.  Once the application is running, open your browser and navigate to `http://localhost:3000/docs`.
 ```bash
-$ env=prod npm run start:dev
+$ env=prod npm run start:prod
 ```
 
 Run the app on dev server pointed to local DB: 
