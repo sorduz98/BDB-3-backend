@@ -9,6 +9,7 @@ export default registerAs('config', () => {
       port: +process.env.POSTGRES_PORT,
       host: process.env.POSTGRES_HOST,
     },
+    postgres_url: process.env.DATABASE_URL,
     typeorm: {
       connection: process.env.TYPEORM_CONNECTION,
       host: process.env.TYPEORM_HOST,
