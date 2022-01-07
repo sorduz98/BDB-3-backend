@@ -5,6 +5,7 @@ import { UsersModule } from './users/users.module';
 import config from 'config';
 import { enviroments } from 'enviroments';
 import { DatabaseModule } from './database/database.module';
+import { AppController } from './app.controller';
 
 @Module({
   imports: [
@@ -16,7 +17,7 @@ import { DatabaseModule } from './database/database.module';
     DatabaseModule,
     UsersModule,
   ],
-  controllers: [],
+  controllers: [AppController],
   providers: [],
 })
 export class AppModule {}
