@@ -34,8 +34,8 @@ export class UsersService {
     user.fullname = data.fullname;
     user.birthdate = data.birthdate;
     user.identification = data.identification;
-    user.father = father;
-    user.mother = mother;
+    user.father = data?.father_id ? father : null;
+    user.mother = data?.mother_id ? mother : null;
     try {
       return await this.userRepo.save(user);
     } catch (error) {
